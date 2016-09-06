@@ -1,0 +1,23 @@
+﻿@model WebApplication6.Models.SuperData
+@{
+    ViewBag.Title = "My Weather";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Weather</h2>
+
+<p>
+    <div id="result">
+        @using (Ajax.BeginForm("GetWeather", "MyWeather", FormMethod.Post, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "result" }))
+        {
+
+            @Html.Label("City")
+            @Html.Editor("UserCity")
+            @Html.Label("State")
+            @Html.Editor("UserState")
+            <input type="submit" value="Get Weather" />
+
+        }
+    </div>
+</p>
+
